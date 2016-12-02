@@ -3,6 +3,7 @@ package com.reddithomefeeds.utilities;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,7 +37,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Dhananjay Mohnot on 4/13/2016.
@@ -364,5 +368,45 @@ public class AppUtil {
     public static void dismissProgressDialog(ProgressDialog progressDialog) {
         if (progressDialog != null && progressDialog.isShowing())
             progressDialog.dismiss();
+    }
+
+    public static int getColorAccordingToAndroidVersion(Context context, int idOfColor) {
+        if (context != null) {
+            if (Build.VERSION.SDK_INT >= 23)
+                return context.getResources().getColor(idOfColor, null);
+            else
+                return context.getResources().getColor(idOfColor);
+        } else
+            return 0;
+    }
+
+    public static String getFormattedDate(Long dateTimeInMilliseconds, String dateTimeFormat) {
+
+        if (dateTimeFormat != null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateTimeFormat, Locale.getDefault());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(dateTimeInMilliseconds);
+            return simpleDateFormat.format(calendar.getTime());
+        } else {
+            AppLog.e(LOG_TAG, "dateTimeFormat is null in getFormattedDate()");
+            return null;
+        }
+    }
+
+    public static void openURLLinkInBrowserIntent(Context context, String strURL_linkToOpenInBrowser) {
+
+        if (!strURL_linkToOpenInBrowser.startsWith("http://") && !strURL_linkToOpenInBrowser.startsWith("https://"))
+            strURL_linkToOpenInBrowser = "http://" + strURL_linkToOpenInBrowser;
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(strURL_linkToOpenInBrowser));
+
+        try {
+            context.startActivity(browserIntent);
+        } catch (ActivityNotFoundException ex) {
+            showAlertDialogWith1Button(context, context.getString(R.string.
+                            CannotFindAnyWebBrowserApplicationToOpenLinkYouCanVisitThisLinkFromADeviceWithSupportedWebBrowser,
+                    strURL_linkToOpenInBrowser), null, null, LOG_TAG, true);
+        }
+
     }
 }

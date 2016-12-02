@@ -6,8 +6,10 @@
     <string name="Loading">Loading&#8230;</string>
     <string name="PleaseConnectToAWorkingInternetConnection">Please connect to a working internet connection!</string>
     <string name="WhoopsThereWasAnErrorPleaseTryAgainLater">Whoops! There was an error. Please try again later.</string>
+    <string name="WhoopsThereWasAnErrorWhileFetchingDataPleaseTryAgainLater">Whoops! There was an error while fetching the data. Please try again later.\nCause:\u0020%1$s</string>
     <string name="UnableToConnectToServer">We are unable to connect to the server! Please try again a bit later.</string>
     <string name="This_app_needs_access_to_location_permissions_to_provide_you_information">This app needs access to location permissions to provide you information.</string>
     <string name="SomethingIsNotOK">Something is not OK!</string>
-    <string name="votes_colon">Votes:\u0020</string>
+    <string name="votes_colon">%1$d\u0020votes</string>
+    <string name="CannotFindAnyWebBrowserApplicationToOpenLinkYouCanVisitThisLinkFromADeviceWithSupportedWebBrowser">Cannot find any web browser application to open link. You can visit this link from a device with supported web browser:%1$s</string>
 </resources>

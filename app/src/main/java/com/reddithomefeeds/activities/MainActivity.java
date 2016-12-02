@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements OnListItemClickLi
                     AppLog.v(LOG_TAG, "onFailure() t:" + t.getMessage());
                     AppUtil.dismissProgressDialog(progressDialog);
                     AppUtil.showAlertDialogWith1Button(MainActivity.this, getString(R.string.
-                            WhoopsThereWasAnErrorPleaseTryAgainLater), null, null, LOG_TAG, true);
+                            WhoopsThereWasAnErrorWhileFetchingDataPleaseTryAgainLater, t.getMessage()), null, null, LOG_TAG, true);
                 }
             });
         } else {
