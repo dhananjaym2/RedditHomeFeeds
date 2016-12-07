@@ -107,8 +107,9 @@ public class FeedsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             ((Feeds_ViewHolder) holder).votes_textView.setText(context.getString(R.string.votes_colon, feeds_list.get(position).getData().getUps()));
 
-            ((Feeds_ViewHolder) holder).time_textView.setText(AppUtil.getFormattedDate(feeds_list.get(position).getData().
-                    getCreatedUtc(), "MM/dd hh:mm"));//"dd/MM/yyyy hh:mm:ss.SSS"
+            ((Feeds_ViewHolder) holder).time_textView.setVisibility(View.GONE);
+//            ((Feeds_ViewHolder) holder).time_textView.setText(AppUtil.getFormattedDate(feeds_list.get(position).getData().
+//                    getCreatedUtc(), "MM/dd hh:mm"));//"dd/MM/yyyy hh:mm:ss.SSS"
         } else {
             ((ProgressViewHolder) holder).progressBar.setIndeterminate(true);
         }

@@ -58,10 +58,6 @@ public class MainActivity extends AppCompatActivity implements AlertDialog_OnCli
         feedsAdapter.setOnLoadMoreListener(new FeedsAdapter.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-                // TODO add progress item
-//                addProgressItemToRecyclerAdapter();
-
-//                AppLog.v(LOG_TAG, "just before loading more new feed items");
                 getRedditHomeFeeds();
             }
         });
