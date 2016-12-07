@@ -133,7 +133,7 @@ public class AppUtil {
             progressDialog = new ProgressDialog(context);
 
             if (msgOnProgressDialog == null)
-                msgOnProgressDialog = context.getString(R.string.Loading);
+                msgOnProgressDialog = context.getString(R.string.LoadingFeeds);
 
             progressDialog.setMessage(msgOnProgressDialog);
             progressDialog.setCancelable(isCancellable);

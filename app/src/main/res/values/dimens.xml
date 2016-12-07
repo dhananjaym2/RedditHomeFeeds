@@ -5,4 +5,5 @@
     <dimen name="list_item_feeds_paddingTopBottom">5dp</dimen>
     <dimen name="list_item_feeds_paddingLeftRight">10dp</dimen>
     <dimen name="spaceBetweenInternalComponentsEachRow">5dp</dimen>
+    <dimen name="progressBar_heightWidth">35dp</dimen>
 </resources>

@@ -3,7 +3,7 @@
 
     <string name="YourDeviceDoesntHaveASupportedCameraApp">Your device doesn\'t have a supported camera app.</string>
 
-    <string name="Loading">Loading&#8230;</string>
+    <string name="LoadingFeeds">Loading feeds&#8230;</string>
     <string name="PleaseConnectToAWorkingInternetConnection">Please connect to a working internet connection!</string>
     <string name="WhoopsThereWasAnErrorPleaseTryAgainLater">Whoops! There was an error. Please try again later.</string>
     <string name="WhoopsThereWasAnErrorWhileFetchingDataPleaseTryAgainLater">Whoops! There was an error while fetching the data. Please try again later.\nCause:\u0020%1$s</string>
@@ -12,4 +12,5 @@
     <string name="SomethingIsNotOK">Something is not OK!</string>
     <string name="votes_colon">%1$d\u0020votes</string>
     <string name="CannotFindAnyWebBrowserApplicationToOpenLinkYouCanVisitThisLinkFromADeviceWithSupportedWebBrowser">Cannot find any web browser application to open link. You can visit this link from a device with supported web browser:%1$s</string>
+    <string name="Retry">Retry</string>
 </resources>
