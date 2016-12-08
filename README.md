@@ -1,1 +1,2 @@
-#Reddit home page feeds in an infinite lazy loading fashion shown in a Recycler View for Android app 
+#Reddit home page feeds in an infinite lazy loading fashion shown in a Recycler View for Android app
+You can download this app for your Android device from [this link](https://drive.google.com/open?id=0BzjsbaNM7vbUMnIzYy0xb1owOWM "Reddit Home Feeds- Android app")
