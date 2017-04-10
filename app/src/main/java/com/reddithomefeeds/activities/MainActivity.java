@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements AlertDialog_OnCli
      */
     private String after;
     private List<Child> listOfFeeds = new ArrayList<>();
+    private Handler handler;
+    private long timeDelayForRefresh = 10000;
+    private Runnable runnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements AlertDialog_OnCli
             }
         });
         feeds_recyclerView_MainActivity.setAdapter(feedsAdapter);
+
+        AppUtil.showAlertDialogWith_TwoButtons(MainActivity.this, getString(R.string.
+                CheckForUpdatedFeedsEveryXSeconds, timeDelayForRefresh / 1000), MainActivity.this, getString(android.R.string.yes), null, LOG_TAG, false);
+
     }
 
     private void getRedditHomeFeeds() {
@@ -179,6 +186,26 @@ public class MainActivity extends AppCompatActivity implements AlertDialog_OnCli
         if (strTag.equals(LOG_TAG)) {
             if (buttonText.equals(getString(R.string.Retry))) {
                 getRedditHomeFeeds();
+
+            } else if (buttonText.equals(getString(android.R.string.yes))) {
+
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+//                AppLog.v(LOG_TAG, "in run() of runnable findFirstVisibleItemPosition():" +
+//                        ((LinearLayoutManager) feeds_recyclerView_MainActivity.getLayoutManager()).findFirstVisibleItemPosition());
+
+                        after = null;// load from first page
+                        getRedditHomeFeeds();
+
+                        if (handler != null) {
+                            handler.postDelayed(runnable, timeDelayForRefresh);
+                        }
+                    }
+                };
+                handler = new Handler();
+                handler.post(runnable);
+
             } else
                 AppLog.e(LOG_TAG, "in onAlertDialogButtonClicked() buttonText didn't match any of the mentioned cases");
         } else

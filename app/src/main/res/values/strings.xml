@@ -13,4 +13,5 @@
     <string name="votes_colon">%1$d\u0020votes</string>
     <string name="CannotFindAnyWebBrowserApplicationToOpenLinkYouCanVisitThisLinkFromADeviceWithSupportedWebBrowser">Cannot find any web browser application to open link. You can visit this link from a device with supported web browser:%1$s</string>
     <string name="Retry">Retry</string>
+    <string name="CheckForUpdatedFeedsEveryXSeconds">Check for updated feeds every %1$d seconds.</string>
 </resources>

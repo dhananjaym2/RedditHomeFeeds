@@ -12,7 +12,7 @@ public class AppLog {
     /**
      * to turn off debugging/Log printing set the value of 'isLogEnabled' to false
      */
-    private static boolean isLogEnabled = false;
+    private static boolean isLogEnabled = true;
 
     private static void printLog(char logType, String str_LogTag, String str_LogMessage) {
 
